@@ -4,9 +4,9 @@ MERN stack web application to display email categories and emails.
 The app will be integrated on a web platform. 
 The platform will receive the emails and it will categorize them using context machine learning. Then the categorized emails will be sent to their respective rols. The person with a roll will be able to: 
 - See a chart of all the categories with numbers and labels. 
-- Select an specific category to rerender the chart with the sub categories.
+- Select a specific category to rerender the chart with the sub categories.
 - Select a category and display a grid with all the emails from that category. 
-- Select a email from the grid and display the content of the email. 
+- Select an email from the grid and display the content of the email. 
 - inside the Email display, the user will be able to: 
     - Mark as read.
     - Answer. 
