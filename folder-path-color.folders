@@ -1,0 +1,4 @@
+"folder-path-color.folders": [
+    { "path": "with", "color":"blue" ,  "symbol": "Front", "tooltip": "React Front end" },
+    { "path": "packages/common", "symbol": "T", "tooltip": "Common" }
+]

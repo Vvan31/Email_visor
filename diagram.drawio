@@ -1,0 +1,93 @@
+<mxfile host="65bd71144e">
+    <diagram id="Gj0LSeRwaziPIDtnpM4B" name="Page-1">
+        <mxGraphModel dx="1693" dy="924" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Back-end Server&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="548" y="32" width="469" height="341" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;Email visor&lt;br&gt;MERN Stack&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="36" width="209" height="97" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Mongodb&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="384" y="131" width="94" height="112" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Node Js&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=bottom;align=left;horizontal=1;fillColor=#3d4a5c;strokeColor=#6c8ebf;sketch=1;shadow=0;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="67" width="412" height="257" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="1" source="7" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;MongoDB Driver DAO&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3d4a5c;strokeColor=#6c8ebf;sketch=1;shadow=0;" vertex="1" parent="1">
+                    <mxGeometry x="601" y="93" width="120" height="188" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;Express API APP&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3d4a5c;strokeColor=#6c8ebf;sketch=1;shadow=0;" vertex="1" parent="1">
+                    <mxGeometry x="744" y="90" width="201" height="188" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Front-end Client UI&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="551.5" y="425" width="469" height="341" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;React&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=bottom;align=left;horizontal=1;fillColor=#008a00;strokeColor=#005700;sketch=1;labelBackgroundColor=none;fontStyle=1;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="587" y="447" width="412" height="257" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Next client render / Authentication&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;sketch=1;labelBackgroundColor=none;fontStyle=1;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="608" y="474" width="178" height="188" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.567;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;fontSize=21;startArrow=classic;startFill=1;endArrow=classic;endFill=1;exitX=0.655;exitY=-0.004;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="10" target="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="858" y="421" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Application&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;sketch=1;labelBackgroundColor=none;fontStyle=1;fontSize=20;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="791" y="474" width="171" height="188" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Emails" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=20;glass=0;shadow=1;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneLine=1;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="103" y="273" width="300" height="326" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="_id : object ID" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="26" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="creation_time : Time stamp" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="56" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="owner_email : char" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="86" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="owner_name : char" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="116" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="title : char" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="146" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="description : char" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="176" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="category : char" style="text;strokeColor=none;fillColor=default;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;" vertex="1" parent="14">
+                    <mxGeometry y="206" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="content : char" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="236" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="read : bool" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="266" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="answerded : char" style="text;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=20;fillColor=default;" vertex="1" parent="14">
+                    <mxGeometry y="296" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=14.44;dx=35.76;arrowHead=77;glass=1;fontSize=20;fillColor=#d0cee2;rotation=-5;strokeColor=#56517e;" vertex="1" parent="1">
+                    <mxGeometry x="271" y="166.99999999999997" width="101" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;Express - is a framework that acts as a light layer atop the Nodejs web server, making it easier to develop. It simplifies the APIs.&amp;nbsp;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;br&gt;CORS - cross origin Resoirce Sharing. Modern browsers don't allow front-end clients to talk to REST APis by default. They block requests sent from clients to servers as a security mechanism. CORS checking uses additional HTTP headers to tell browsers to give a web application that is running at the origin access to resources that have a different origin.&amp;nbsp;&lt;/blockquote&gt;&lt;br&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;MongoDB dependency - To interact with Mongo DB&lt;/blockquote&gt;&lt;br&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;dotenv - loads environmental variabeles from the process.env file instead of setting environmental variables on our development machine.&amp;nbsp;&amp;nbsp;&lt;/blockquote&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;rounded=1;shadow=0;glass=0;labelBackgroundColor=none;sketch=1;fontSize=20;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="40" width="640" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="whiteSpace=wrap;html=1;aspect=fixed;rounded=1;shadow=0;glass=0;labelBackgroundColor=none;sketch=1;fontSize=20;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="476" y="823" width="558" height="558" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=14.44;dx=35.76;arrowHead=77;glass=1;fontSize=20;fillColor=#b1ddf0;rotation=35;strokeColor=#10739e;" vertex="1" parent="1">
+                    <mxGeometry x="1050" y="30.99999999999997" width="101" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
