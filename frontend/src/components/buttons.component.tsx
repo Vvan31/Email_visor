@@ -26,10 +26,10 @@ export const RegisterButton = () => {
     )
 }
 
-export const ProfileButton = () => {
+export const EmailBoardButton = () => {
     return (
-        <Link href="/profile" className="mr-3">
-            Profile
+        <Link href="/mails" className="mr-3">
+            Access Email Board
         </Link>
     )
 }

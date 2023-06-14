@@ -1,4 +1,4 @@
-import { LoginButton, LogoutButton, RegisterButton, ProfileButton  } from "@/components/buttons.component"
+import { LoginButton, LogoutButton, RegisterButton, EmailBoardButton  } from "@/components/buttons.component"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 
@@ -11,7 +11,7 @@ export default async function Home() {
       <div>
         <LoginButton />
         <RegisterButton />
-        <ProfileButton />
+        <EmailBoardButton />
         <LogoutButton />
         <h1 className="text-7xl font-bold mb-3">Server Session</h1>
         <code>{JSON.stringify(session)}</code>
