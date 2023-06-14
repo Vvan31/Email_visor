@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "next-auth": "^4.22.1"
+    "@auth/mongodb-adapter": "^1.0.0",
+    "@prisma/client": "^4.15.0",
+    "mongodb": "^5.6.0"
+  },
+  "devDependencies": {
+    "prisma": "^4.15.0"
   }
 }
