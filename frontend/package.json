@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"commonjs\"} prisma/seed.ts"
+  },
   "dependencies": {
     "@auth/mongodb-adapter": "^1.0.0",
     "@prisma/client": "^4.15.0",
@@ -29,6 +32,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
-    "prisma": "^4.15.0"
+    "prisma": "^4.15.0",
+    "ts-node": "^10.9.1"
   }
 }
