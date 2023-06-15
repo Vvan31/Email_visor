@@ -2,6 +2,9 @@ import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
+import { NavBar} from "@/components/navBar.component";
+import redirectAuthenticated from "@/middleware";
+
 export default async function MailsBoard() {
     const session = await getServerSession(authOptions);
 
@@ -9,11 +12,9 @@ export default async function MailsBoard() {
         redirect('/');
     }
     return (
-        <main className="flex justify-center items-center h-[70vh]">
-            <div>
-                <h1 className="text-7xl font-bold mb-3">Emails</h1>
-                <code>{JSON.stringify(session)}</code>
-            </div>
+        <main>
+            <NavBar />
         </main>
     )
 }
+

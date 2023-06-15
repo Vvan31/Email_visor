@@ -2,9 +2,9 @@ import type { NextAuthOptions } from 'next-auth'
 import  CredentialsProvider  from 'next-auth/providers/credentials'
 import { compare } from 'bcryptjs'
 import { prisma } from './primsa'
-import { log } from 'console'
 
 export const authOptions: NextAuthOptions = {  
+ 
     // Configure one or more authentication providers
     session: {
         strategy: 'jwt',
@@ -32,32 +32,27 @@ export const authOptions: NextAuthOptions = {
                 if (!credentials?.email || !credentials?.password) {
                     return null
                 }
-                // aslk prisma to talk to mongo 
+                // ask prisma to talk to MongoDB 
                 const user = await prisma.user.findUnique({
                     where: {
                         email: credentials.email
                     }
                 }) 
-                // If exists, compare the password
+                // If user does not exist, log an error
                 if(!user){ 
-                    console.log('user not found')
-                }else{
-                    console.log(typeof credentials.password + " " + typeof user.password)
-                    console.log(credentials.password)
-                    console.log(user.password)
-                    console.log(await compare(credentials.password, user.password))
+                    console.log('User not found')
                 }
-                if(!user || !(await compare(credentials.password, user.password))){
-                    return null
+                // If user exists and password is correct, redirect and return user data
+                if(user && (await compare(credentials.password, user.password))){
+           /*          redirect('/mails') */
+                    return {
+                        id: user.id,
+                        name: user.name,
+                        email: user.email
+                    }
                 }
-
-                // const dummy_user = { id: "1", name: 'Admin', email: 'admin@gmail.com'}
-
-                return {
-                    id: user.id,
-                    name: user.name,
-                    email: user.email
-                }
+                // Invalid credentials, return null
+                return null;
             }
         })
     ],

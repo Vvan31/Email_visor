@@ -4,9 +4,13 @@ import Link from "next/link";
 
 export const LoginButton = () => {
     return (
-        <button onClick={(() => signIn())} className="mr-3">
-            Sign In
-        </button>
+        <>
+         Hi stranger,
+            <button onClick={(() => signIn())} className="mr-3 hover:text-blue-500">
+                login :)
+            </button>
+        </>
+       
     )
 }
 
