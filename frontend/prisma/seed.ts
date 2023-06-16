@@ -15,7 +15,7 @@ async function main() {
             password,
         },
     });
-    console.log(user);
+    //console.log(user);
 }
 
 main()

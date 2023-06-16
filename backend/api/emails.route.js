@@ -8,8 +8,8 @@ router.route("/id/:id").put(EmailsController.apiGetEmailById);
 router.route("/category/:category").get(EmailsController.apiGetEmailsCategories);
 router
     .route("/editEmail")
-    .post(EditEmailController.apiEditEmail)
+/*     .post(EditEmailController.apiEditEmail)
     .put(EditEmailController.apiEditEmail)
     .delete(EditEmailController.apiEditEmail);
-
+ */
 export default router;

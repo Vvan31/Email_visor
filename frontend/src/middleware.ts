@@ -18,7 +18,7 @@ export default async function redirectAuthenticated(req: any, res: { redirect: (
   
     if (session) {
       // User is authenticated, redirect to the desired page
-      console.log('user is authenticated')
+      //console.log('user is authenticated')
       res.redirect('/mails');
     } else {
       // User is not authenticated, continue to the next middleware or route handler
