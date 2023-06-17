@@ -77,6 +77,31 @@ export default class EmailsDAO{
             }
         }
 
+        static async getNumberOfEmailsCategories() {
+            try {
+              const pipeline = [
+                {
+                  $group: {
+                    _id: "$category",
+                    count: { $sum: 1 }
+                  }
+                },
+                {
+                  $project: {
+                    category: "$_id",
+                    count: 1,
+                    _id: 0
+                  }
+                }
+              ];
+          
+              const result = await emails.aggregate(pipeline).toArray();
+              return result;
+            } catch (e) {
+              console.error(`Unable to get categories: ${e}`);
+              return [];
+            }
+          }
 
         static async getEmails({
             filters = null,

@@ -26,7 +26,16 @@ export default class EmailsController{
             res.status(500).json({error: e})
         }
     }
-
+    static async apiGetNumberOfEmailsCategories(req,res,next){
+        try{
+            let numberOfEmailsCategories = await EmailsDAO.getNumberOfEmailsCategories()
+            res.json(numberOfEmailsCategories)
+        }catch(e){
+            console.log(`api, ${e}`)
+            res.status(500).json({error: e})
+        }
+    }
+    
     static async apiGetEmails(req,res,next){
         const emailsPerPage = req.query.emailsPerPage ? parseInt(req.query.emailsPerPage) : 20
         const page = req.query.page ? parseInt(req.query.page) : 0

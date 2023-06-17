@@ -5,7 +5,8 @@ import EditEmailController from "./editEmail.controller.js";
 const router = express.Router();
 router.route("/").get(EmailsController.apiGetEmails);
 router.route("/id/:id").put(EmailsController.apiGetEmailById);
-router.route("/category/:category").get(EmailsController.apiGetEmailsCategories);
+router.route("/categories").get(EmailsController.apiGetEmailsCategories);
+router.route("/categories/numberofcategories").get(EmailsController.apiGetNumberOfEmailsCategories);
 router
     .route("/editEmail")
 /*     .post(EditEmailController.apiEditEmail)
