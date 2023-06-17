@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import MailsService from "../services/mails";
 
+import '../style/charts.css';
 function CategoryCharts() {
   const [totalCategories, setTotalCategories] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -69,12 +70,11 @@ function CategoryCharts() {
     };
   
     const handleCategoryClick = (event, category) => {
-        setSelectedCategory(category);
-        // Handle category selection logic here
+        setSelectedCategory(formattedData[category].title);
       };
     
       return (
-        <div className="App">
+        <div className="app">
           <PieChart 
             data={formattedData} 
             paddingAngle={2}

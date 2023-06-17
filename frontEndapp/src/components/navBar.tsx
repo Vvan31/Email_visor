@@ -22,7 +22,7 @@ export const NavBar = () => {
     }}
 >   
     <SideNav.Toggle className="NavToggle" />
-    <SideNav.Nav defaultSelected="home">
+    <SideNav.Nav defaultSelected="home" className="navItems">
         <NavItem eventKey="home">
             <NavIcon>
                 <img src={chart} className='' height={23} />
@@ -42,6 +42,14 @@ export const NavBar = () => {
         <NavItem eventKey="unread">
             <NavIcon>
                 <img src={mailOopen} className='' height={23} />
+            </NavIcon>
+            <NavText>
+                Unread
+            </NavText>
+        </NavItem>
+        <NavItem eventKey="signOut" className='signOut'>
+            <NavIcon>
+                <img src={logout}  height={23} />
             </NavIcon>
             <NavText>
                 Unread

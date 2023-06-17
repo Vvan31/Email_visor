@@ -1,0 +1,12 @@
+{
+  "cssImports": {
+    "/home/vvan/Documents/CICC/programs/Email_visor/with/src/app/layout.tsx": [
+      "/home/vvan/Documents/CICC/programs/Email_visor/with/src/app/globals.css"
+    ]
+  },
+  "cssModules": {
+    "/home/vvan/Documents/CICC/programs/Email_visor/with/src/app/page": [
+      "/home/vvan/Documents/CICC/programs/Email_visor/with/src/app/globals.css"
+    ]
+  }
+}

@@ -35,8 +35,13 @@ function Mails() {
                 <NavBar />
             </div>
             <div className="content" >
-                <CategoryCharts />
-               <EmailsList /> 
+                <div className="charts">
+                    <CategoryCharts />
+                </div>
+                <div className='list'>
+                    <EmailsList mails={mails} />
+                </div>
+            
             </div>
         </main>
     )

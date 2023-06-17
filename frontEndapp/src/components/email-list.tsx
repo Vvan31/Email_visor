@@ -1,10 +1,28 @@
 import React from 'react'
+import { Box, Stack, Paper } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-function EmailsList() {
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
+
+function EmailsList( ) {
+    
     return (
-        <div className="App">
-            Email List
-        </div>
+        <><Box sx={{ width: '100%' }}>
+        <Stack spacing={2}>
+          <Item>Item 1</Item>
+          <Item>Item 2</Item>
+          <Item>Item 3</Item>
+        </Stack>
+      </Box></>
+        
     ); 
 }
 export default EmailsList;
