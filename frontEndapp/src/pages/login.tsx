@@ -30,7 +30,7 @@ function Login({ login }: LoginProps) {
   };
 
   return (
-    <>
+    <main className="login" >
       <form className="form" onSubmit={handleSubmit}>
         <p className="form-title">Sign in to your account</p>
         <div className="input-container">
@@ -58,7 +58,7 @@ function Login({ login }: LoginProps) {
           <a href="">Sign up</a>
         </p>
       </form>
-    </>
+    </main>
   );
 }
 

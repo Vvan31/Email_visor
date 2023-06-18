@@ -1,0 +1,97 @@
+.Emailcontainer {
+    height: 60vh; /* Adjust the desired height of the container */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+  
+  .Emailcontainer::-webkit-scrollbar {
+    width: 6px; /* Adjust the width of the scrollbar */
+  }
+  
+  .Emailcontainer::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Adjust the color of the scrollbar thumb */
+    border-radius: 3px;
+  }
+  
+  .Emailcontainer::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the color of the scrollbar thumb on hover */
+  }
+  
+  .Emailcontainer::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .bottomNav{
+    position: absolute !important;
+    width: 100% !important;
+    background-color: #2c3e50 !important;
+    color: aliceblue !important;
+    display: flex !important;
+    justify-content: space-around !important;
+  }
+  .navButton{
+    color: aliceblue !important;
+    flex-grow: 1 !important;
+    width: 35px !important;
+    z-index: 999 !important;
+  }
+  .icon{
+    z-index: 1 !important;
+  }
+.emailList{
+    margin-top: 4% !important;
+  }
+  .buttonEmail:hover{
+    border-color: none !important;
+  }
+  .individualEmail{
+    display: flex;
+    flex-direction: row;   
+    font-family:  sans-serif;
+  }
+
+  .mainTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: left ;
+    align-items: center;
+    width: 30%;
+  }
+  .description{
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    margin-right: 2%;
+    align-items: center;
+    width: 80%;
+  }
+  .time{
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+    width: 5%;
+    margin-right: 3%;
+  }
+  .owner{
+    font-weight: 700;
+  }
+  .title{
+    margin-right: 0.5%;
+    font-weight: 700;
+  }
+  .description{
+    margin-left: 0.5%;
+    font-weight: 400;
+  }
+    .time{
+        font-weight: 400;
+    }
+
+    .pagination{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+
+    }

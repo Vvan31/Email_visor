@@ -2,3 +2,10 @@
     padding-top: 2%;
     height: 23vh;
 }
+.chartLabel{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000 !important;
+    text-align: center;
+    position: relative;
+}
