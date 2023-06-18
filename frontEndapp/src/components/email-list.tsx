@@ -55,6 +55,10 @@ function EmailsList({ category }: { category: string | null }) {
     retreiveMails();
 }, []);
 useEffect(() => {
+  retreiveMails();
+}, [currentPage]);
+
+useEffect(() => {
   retreiveMailsChangeByCategory();
 }, [category]);
 
@@ -85,7 +89,10 @@ const retreiveMails = () =>{
   const handleItemClick = (mail: Mail) => {
     console.log(mail)
   }
-
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setCurrentPage(value);
+  };
+  
   return (
     <>
     <div className='Emailcontainer'>
@@ -129,7 +136,13 @@ const retreiveMails = () =>{
       </Box>
    
     </div>
-      <Pagination count={100} color="primary" className='pagination' size="large"/>
+      <Pagination 
+        count={2} 
+        color="primary" 
+        className='pagination' 
+        size="large" 
+        onChange={handlePageChange}
+        />
     </>
   );
 }

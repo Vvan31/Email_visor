@@ -7,7 +7,7 @@ class MailsService {
     getMail(id: string) {
         return axios.get(`http://localhost:8000/api/v1/emails/${id}`);
     }
-    findMails(query: any, by = "title", page = 0) {
+    findMails(query: any, by = "category", page = 0) {
         return axios.get(`http://localhost:8000/api/v1/emails?${by}=${query}&page=${page}`)
     }
     getCategories() {
