@@ -5,7 +5,7 @@ declare const global: {
 };
 
 if(!process.env.MONGODB_URI){
-  throw new Error("Please define the MONGODB_URI environment variable inside .env.local");
+  throw new Error("Please define theEMAILS_DB_URI environment variable inside .env.local");
 }
 
 const uri = process.env.MONGODB_URI;

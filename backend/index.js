@@ -10,7 +10,7 @@ import UserDAO from './dao/userDAO.js';
 async function main() {
     dotenv.config();
     const client = new mongodb.MongoClient(
-        process.env.EMAILS_DB_URI
+        process.env.MONGODB_URI
     )
     const port = process.env.PORT || 5000;
     try {
