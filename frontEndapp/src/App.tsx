@@ -14,6 +14,7 @@ import Login from './pages/login';
 import SignUp from './pages/signup';
 import Mails from './pages/mails';
 
+
 export default function App() {
   return (
     <AuthProvider>
