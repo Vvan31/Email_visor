@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import {
   Box,
   Stack,
@@ -43,16 +43,13 @@ type Mail = {
   answered: boolean;
 };
 
-type MailList = {
-  mails: Mail[];
-};
 
 function EmailsList({ category }: { category: string | null }) {
   const [value, setValue] = React.useState(0);
-  const [mails, setMails] = useState<Mail[]>([]);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [mails, setMails] = React.useState<Mail[]>([]);
+  const [currentPage, setCurrentPage] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     retrieveMails();
   }, [currentPage, category]);
 
@@ -80,20 +77,22 @@ function EmailsList({ category }: { category: string | null }) {
   };
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    console.log("Changing page to " + value + " from category " + event);
     setCurrentPage(value);
   };
 
   return (
     <>
       <div className='Emailcontainer'>
-        <BottomNavigation
-          className='bottomNav'
-          showLabels
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        >
+      <BottomNavigation
+        className='bottomNav'
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+          console.log(event);
+        }}
+      >
           <BottomNavigationAction className='navButton' label="Primary" icon={<MoveToInboxIcon />} />
           <BottomNavigationAction className='navButton' label="Read" icon={<OutboxIcon />} />
           <BottomNavigationAction className='navButton' label="Favorites" icon={<FavoriteIcon />} />
