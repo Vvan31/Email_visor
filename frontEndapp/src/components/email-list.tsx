@@ -66,7 +66,7 @@ function EmailsList({ category }: { category: string | null }) {
 
     promise
       .then(response => {
-        console.log(response.data.emails);
+        //console.log(response.data.emails);
         setMails(response.data.emails);
         setCurrentPage(response.data.page);
       })

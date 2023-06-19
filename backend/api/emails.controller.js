@@ -74,7 +74,7 @@ export default class EmailsController{
             total_results: totalNumEmails
         } 
    
-        console.log(response)
+        //console.log(response)
         res.json(response) 
     }
 
