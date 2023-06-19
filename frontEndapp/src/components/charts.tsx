@@ -1,7 +1,9 @@
+// CategoryCharts
 import React, { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import MailsService from "../services/mails";
-
+import { Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import '../style/charts.css';
 
 type Category = {
@@ -15,12 +17,14 @@ type Data = {
   title: string | number;
 };
 
-function CategoryCharts({ handleCategorySelection, totalCategories, categories }: {
-  handleCategorySelection: (category: string) => void;
+type CategoryChartsProps = {
+  handleCategorySelection: (category: string | null) => void;
   totalCategories: Category[];
   categories: Category[];
-}) {
-  const [formattedData, setFormattedData] = useState<Data[]>([]);
+};
+
+function CategoryCharts({ handleCategorySelection, totalCategories, categories }: CategoryChartsProps) {
+  const [formattedData, setFormattedData] = useState <Data[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
@@ -88,10 +92,12 @@ function CategoryCharts({ handleCategorySelection, totalCategories, categories }
     setSelectedCategory(formattedData[category].title as string);
     handleCategorySelection(formattedData[category].title as string);
   };
-  const defaultLabelStyle = {
-    fontSize: '0.5em',
-    fontFamily: 'sans-serif',
+
+  const handleAllEmailsClick = () => {
+    setSelectedCategory(null);
+    handleCategorySelection(null);
   };
+
   const shiftSize = 7;
   return (
     <div className="app">
@@ -102,9 +108,8 @@ function CategoryCharts({ handleCategorySelection, totalCategories, categories }
         animationDuration={10000}
         lineWidth={35}
         rounded={true}
-        radius={42  - shiftSize}
-       /*  segmentsShift={(index) => (index === 0 ? shiftSize : 0.9)} */
-        label={({ dataEntry }) => dataEntry.value +  '%'}
+        radius={42 - shiftSize}
+        label={({ dataEntry }) => dataEntry.title + ': ' + dataEntry.value + '%'}
         labelStyle={(index) => ({
           fill: formattedData[index].color,
           fontSize: '0.5em',
@@ -114,11 +119,18 @@ function CategoryCharts({ handleCategorySelection, totalCategories, categories }
         labelPosition={112}
         onClick={(event, category) => handleCategoryClick(event, category)}
       />
-      {selectedCategory && (
-        <div>
-          <h3>Selected Category: {selectedCategory}</h3>
-        </div>
-      )}
+      <div className='titleContainer'>
+        {selectedCategory != null ? (
+          <div className='selectedCategory'>
+            <h3>{selectedCategory}</h3>
+            <Button onClick={() => handleAllEmailsClick()} >All emails</Button>
+          </div>
+        ) : (
+          <div className='selectedCategory'>
+            <h3>All mail</h3>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

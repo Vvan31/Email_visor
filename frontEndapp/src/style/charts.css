@@ -1,6 +1,10 @@
 .app{
     padding-top: 2%;
-    height: 23vh;
+    height: 27vh;
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
 }
 .chartLabel{
     font-size: 1.5rem;
@@ -8,4 +12,22 @@
     color: #000000 !important;
     text-align: center;
     position: relative;
+}
+
+.titleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+
+
+}
+
+.selectedCategory{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000 !important;
+    text-align: center;
+    right: 2 !important;
 }

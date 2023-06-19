@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 // DAO
 import EmailsDAO from './dao/emailsDAO.js';
+import UserDAO from './dao/userDAO.js';
 
 
 async function main() {
@@ -16,6 +17,7 @@ async function main() {
         // Connect to the MongoDB cluster
         await client.connect();
         await EmailsDAO.injectDB(client);
+        await UserDAO.injectDB(client);
         app.listen(port, () => {
             console.log(`listening on port ${port}`);
         });

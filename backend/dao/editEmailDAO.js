@@ -41,4 +41,10 @@ export default class EditEmailDAO {
             return { error: e }
         }
     }
+
+    static async getNumberOfEmails() {
+        let numberOfEmails = await emails.countDocuments();
+        return numberOfEmails;
+    }
+    
 }

@@ -26,6 +26,15 @@ export default class EmailsController{
             res.status(500).json({error: e})
         }
     }
+    static async apiGetNumberOfEmails(req,res,next){
+        try{
+            let numberOfEmails = await EmailsDAO.getNumberOfEmails()
+            res.json(numberOfEmails)
+        }catch(e){
+            console.log(`api, ${e}`)
+            res.status(500).json({error: e})
+        }
+    }
     static async apiGetNumberOfEmailsCategories(req,res,next){
         try{
             let numberOfEmailsCategories = await EmailsDAO.getNumberOfEmailsCategories()
@@ -68,4 +77,5 @@ export default class EmailsController{
         console.log(response)
         res.json(response) 
     }
+
 }

@@ -25,6 +25,16 @@ export default class EmailsDAO{
           console.error(`Unable to insert sample data: ${e}`);
         }
       } */
+      static async getNumberOfEmails(){
+        let numberOfEmails = 0
+        try{
+            numberOfEmails = await emails.countDocuments()
+            return numberOfEmails
+        }catch(e){
+            console.error(`unable to get number of emails, ${e}`)
+            return numberOfEmails
+        }
+    }
       
         static async getEmailById(id){
             try{

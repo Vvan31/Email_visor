@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import { 
-  Box, 
-  Stack, 
-  Paper, 
-  Checkbox, 
+import React, { useEffect, useState } from 'react';
+import {
+  Box,
+  Stack,
+  Paper,
+  Checkbox,
   BottomNavigationAction,
   BottomNavigation,
   Pagination
 } from '@mui/material';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-
 import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
 import OutboxIcon from '@mui/icons-material/Outbox';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { styled } from '@mui/material/styles';
 //styles
-import '../style/emailList.css'
+import '../style/emailList.css';
 
-//API 
+//API
 import MailsService from "../services/mails";
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 type Mail = {
   _id: string;
@@ -43,60 +42,51 @@ type Mail = {
   read: boolean;
   answered: boolean;
 };
+
 type MailList = {
   mails: Mail[];
 };
+
 function EmailsList({ category }: { category: string | null }) {
   const [value, setValue] = React.useState(0);
-  const [mails, setMails] =useState<MailList[]>([]);
+  const [mails, setMails] = useState<Mail[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    retreiveMails();
-}, []);
-useEffect(() => {
-  retreiveMails();
-}, [currentPage]);
+    retrieveMails();
+  }, [currentPage, category]);
 
-useEffect(() => {
-  retreiveMailsChangeByCategory();
-}, [category]);
+  const retrieveMails = () => {
+    let promise;
+    if (category) {
+      promise = MailsService.findMails(category, "category", currentPage);
+    } else {
+      promise = MailsService.getAllMails(currentPage);
+    }
 
-const retreiveMails = () =>{
-    MailsService.getAllMails(currentPage)
-      .then(response =>{
-        console.log(response.data.emails)
-        setMails(response.data.emails) 
-        setCurrentPage(response.data.page)
+    promise
+      .then(response => {
+        console.log(response.data.emails);
+        setMails(response.data.emails);
+        setCurrentPage(response.data.page);
       })
-      .catch( e =>{
-        console.log(e)
-      })
-  }
-  const retreiveMailsChangeByCategory = () =>{
-    console.log("Changing emails from category " + category)
-    MailsService.findMails(category, "category", currentPage)
-      .then(response =>{
-        console.log(response.data.emails)
-        setMails(response.data.emails) 
-        setCurrentPage(response.data.page)
-      })
-      .catch( e =>{
-        console.log(e)
-      })
-  }
+      .catch(e => {
+        console.log(e);
+      });
+  };
 
   const handleItemClick = (mail: Mail) => {
-    console.log(mail)
-  }
+    console.log(mail);
+  };
+
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setCurrentPage(value);
   };
-  
+
   return (
     <>
-    <div className='Emailcontainer'>
-      <BottomNavigation
+      <div className='Emailcontainer'>
+        <BottomNavigation
           className='bottomNav'
           showLabels
           value={value}
@@ -104,46 +94,48 @@ const retreiveMails = () =>{
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction  className='navButton' label="Primary" icon={<MoveToInboxIcon />} />
-          <BottomNavigationAction  className='navButton' label="Read" icon={<OutboxIcon />} />
-          <BottomNavigationAction className='navButton'  label="Favorites" icon={<FavoriteIcon />} />
+          <BottomNavigationAction className='navButton' label="Primary" icon={<MoveToInboxIcon />} />
+          <BottomNavigationAction className='navButton' label="Read" icon={<OutboxIcon />} />
+          <BottomNavigationAction className='navButton' label="Favorites" icon={<FavoriteIcon />} />
         </BottomNavigation>
-      <Box sx={{ width: '100%' }} className='emailList'>
-        <Stack spacing={1}>
-          {mails.map((mail) => (
-            <button key={mail._id} className='buttonEmail' onClick={() => handleItemClick(mail)}>
-            <Item className='individualEmail'>
-              <div className='mainTitle'>
-                <Checkbox  className='icon'/>
-                <Checkbox  
-                  icon={<BookmarkBorderIcon />}
-                  checkedIcon={<BookmarkIcon  />} 
-                  className='icon' />
-                <p className='owner'>{mail.owner_name}</p>
-              </div>
-              <div className='description'>
-                <p className='title'>{mail.title}</p>
-                <p className='title'> - </p>
-                <p className='description'>{mail.description}</p>
-              </div>
-              <div className='time'>
-                <p className='time'>{mail.sent_time}</p>
-              </div>
-            </Item>
-            </button>
-          ))}
-        </Stack>
-      </Box>
-   
-    </div>
-      <Pagination 
-        count={2} 
-        color="primary" 
-        className='pagination' 
-        size="large" 
+        <Box sx={{ width: '100%' }} className='emailList'>
+          <Stack spacing={1}>
+            {mails.map((mail) => (
+              <button key={mail._id} className='buttonEmail' onClick={() => handleItemClick(mail)}>
+                <Item className='individualEmail'>
+                  <div className='mainTitle'>
+                    <Checkbox className='icon' />
+                    <Checkbox
+                      icon={<BookmarkBorderIcon />}
+                      checkedIcon={<BookmarkIcon />}
+                      className='icon'
+                    />
+                    <p className='owner'>{mail.owner_name}</p>
+                  </div>
+                  <div className='description'>
+                    <p className='title'>{mail.title}</p>
+                    <p className='title'> - </p>
+                    <p className='description'>{mail.description}</p>
+                  </div>
+                  <div className='time'>
+                    <p className='time'>{mail.sent_time}</p>
+                  </div>
+                </Item>
+              </button>
+            ))}
+          </Stack>
+        </Box>
+      </div>
+      <Pagination
+        count={2}
+        color="primary"
+        className='pagination'
+        size="large"
         onChange={handlePageChange}
-        />
+        disabled
+      />
     </>
   );
 }
+
 export default EmailsList;
