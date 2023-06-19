@@ -4,7 +4,7 @@ class AuthService {
     async registerUser(username: string, email: string, password: string) {
         try {
           const response = await axios.post(
-            "http://localhost:8000/api/v1/users/register",
+            "React.https://email-visor-slen.vercel.app/api/v1/users/register",
             {
               username,
               email,
@@ -20,7 +20,7 @@ class AuthService {
       }
     async login(email:string, password:string) {
         try {
-          const response = await axios.post("http://localhost:8000/api/v1/users/login", {
+          const response = await axios.post("React.https://email-visor-slen.vercel.app/api/v1/users/login", {
             email,
             password,
           });
