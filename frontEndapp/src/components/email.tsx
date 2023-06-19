@@ -15,26 +15,12 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
- type Mail = {
-    _id: string;
-    id: number;
-    sent_time: string;
-    owner_name: string;
-    owner_email: string;
-    category: string;
-    title: string;
-    description: string;
-    content: string;
-    recipient: string;
-    read: boolean;
-    answered: boolean;
- }
 
-export default function EmailModal(mail : Mail) {
+
+export default function EmailModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   return (
     <div>
       <Button onClick={handleOpen}>Open modal</Button>

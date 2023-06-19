@@ -1,9 +1,8 @@
 // CategoryCharts
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import MailsService from "../services/mails";
 import { Button } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import '../style/charts.css';
 
 type Category = {
@@ -24,10 +23,10 @@ type CategoryChartsProps = {
 };
 
 function CategoryCharts({ handleCategorySelection, totalCategories, categories }: CategoryChartsProps) {
-  const [formattedData, setFormattedData] = useState <Data[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [formattedData, setFormattedData] = React.useState <Data[]>([]);
+  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     retrieveCategories();
   }, []);
 
@@ -50,7 +49,7 @@ function CategoryCharts({ handleCategorySelection, totalCategories, categories }
       });
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     formatData();
   }, [totalCategories, categories]);
 
@@ -91,6 +90,7 @@ function CategoryCharts({ handleCategorySelection, totalCategories, categories }
   const handleCategoryClick = (event: React.MouseEvent, category: number) => {
     setSelectedCategory(formattedData[category].title as string);
     handleCategorySelection(formattedData[category].title as string);
+    console.log(event)
   };
 
   const handleAllEmailsClick = () => {
@@ -120,7 +120,7 @@ function CategoryCharts({ handleCategorySelection, totalCategories, categories }
         onClick={(event, category) => handleCategoryClick(event, category)}
       />
       <div className='titleContainer'>
-        {selectedCategory != null ? (
+        {selectedCategory != "null" ? (
           <div className='selectedCategory'>
             <h3>{selectedCategory}</h3>
             <Button onClick={() => handleAllEmailsClick()} >All emails</Button>
@@ -136,3 +136,11 @@ function CategoryCharts({ handleCategorySelection, totalCategories, categories }
 }
 
 export default CategoryCharts;
+function setTotalCategories(emails: any) {
+  throw new Error('Function not implemented. ' + emails );
+}
+
+function setCategories(data: any) {
+  throw new Error('Function not implemented.' + data);
+}
+

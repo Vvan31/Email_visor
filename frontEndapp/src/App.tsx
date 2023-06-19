@@ -2,13 +2,11 @@ import * as React from "react";
 import {
   Routes,
   Route,
-  Link,
   useNavigate,
   useLocation,
   Navigate,
   Outlet,
 } from "react-router-dom";
-import AuthService from "./services/auth";
 //components
 import Login from './pages/login';
 import SignUp from './pages/signup';
@@ -44,9 +42,19 @@ function Layout() {
     </div>
   );
 }
+interface User {
+  email: string;
+  token: any;
+}
 
 interface AuthContextType {
-  user: any;
+  user: User | null;
+  signin: (user: string , callback: VoidFunction) => void;
+  signout: (callback: VoidFunction) => void;
+}
+
+interface AuthContextType {
+  user: User | null;
   signin: (user: string, callback: VoidFunction) => void;
   signout: (callback: VoidFunction) => void;
 }
@@ -54,10 +62,15 @@ interface AuthContextType {
 let AuthContext = React.createContext<AuthContextType>(null!);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  let [user, setUser] = React.useState<any>(null);
+  let [user, setUser] = React.useState<User | null>(null);
 
   let signin = (newUser: string, callback: VoidFunction) => {
-    setUser(newUser);
+    // Here, you can create a User object with the received email and token
+    const user: User = {
+      email: newUser,
+      token: null, // Replace with the appropriate token value
+    };
+    setUser(user);
     callback();
   };
 
@@ -84,6 +97,7 @@ function AuthStatus() {
       navigate("/mails");
     }
   }, [auth.user, navigate]);
+  return null;
 }
 
 

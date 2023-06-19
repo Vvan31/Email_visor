@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import * as React from "react";
 import "../style/login.css";
 import AuthService from "../services/auth";
 import { useAuth } from "../App"; // Import AuthProvider from the App file
 import { Link } from "react-router-dom";
 
-interface LoginProps {}
-
-function Login(props: LoginProps) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+function Login() {
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
   const { signin } = useAuth();
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +22,8 @@ function Login(props: LoginProps) {
     event.preventDefault();
     try {
       const user = await AuthService.login(username, password);
-      signin(user, () => {
+      console.log("Logged in User:", user);
+      signin(username, () => {
         // Handle successful login
       });
     } catch (error) {

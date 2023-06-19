@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth";
 import { Link } from "react-router-dom";
@@ -33,7 +33,7 @@ function SignUp () {
           history('/login'); // Redirect to the login page
           // Optionally, you can redirect to a different page after successful registration
         } catch (error) {
-          console.error('Registration error:', error.message);
+          console.error('Registration error:', error);
           history('/login'); // Redirect to the login page
           
           // Handle the registration error, such as displaying an error message

@@ -1,6 +1,6 @@
 
 
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 // style
 import "../style/mainPage.css";
 // components
@@ -17,13 +17,12 @@ type Category = {
 };
 
 function MailsPage() {
-  const [currentPage, setCurrentPage] = useState(0);
 
-  const [totalCategories, setTotalCategories] = useState<Category[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [totalCategories, setTotalCategories] = React.useState<Category[]>([]);
+  const [categories, setCategories] = React.useState<Category[]>([]);
+  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     retrieveCategories();
   }, []);
 
@@ -46,7 +45,7 @@ function MailsPage() {
       });
   };
 
-  const handleCategorySelection = (category: string) => {
+  const handleCategorySelection = (category: string | null) => {
     setSelectedCategory(category);
     //console.log("Category selected: " + category);
   };
