@@ -129,11 +129,13 @@ export default class EmailsDAO{
                     query = { "answered": { $eq: filters['answered']}}
                 }else if("owner_email" in filters){
                     query = { $text: { $search: filters['owner_email']}}
-                }
+            }else{
+                query = {}
+            }
             }
             let cursor
             try{
-                cursor = await emails
+                cursor = emails
                     .find(query) 
                     .limit(emailsPerPage)  
                     .skip(emailsPerPage * page)
