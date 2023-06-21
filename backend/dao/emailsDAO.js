@@ -142,7 +142,7 @@ export default class EmailsDAO{
                 return {emailsList, count}
             }
             catch(e){
-                console.error(`unable to issue find command, ${e}`)
+                console.error(`unable to issue find command, ${e} + ${query} + ${filters}`)
                 return {emailsList: [], count: 0}
             }
         }
