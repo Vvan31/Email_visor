@@ -4,6 +4,7 @@ import EditEmailController from "./editEmail.controller.js";
 
 const router = express.Router();
 router.route("/").get(EmailsController.apiGetEmails);
+router.route("/search").get(EmailsController.apiSearchEmails);
 router.route("/totalEmails").get(EmailsController.apiGetNumberOfEmails);
 router.route("/id/:id").put(EmailsController.apiGetEmailById);
 router.route("/categories").get(EmailsController.apiGetEmailsCategories);

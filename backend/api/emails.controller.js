@@ -49,21 +49,31 @@ export default class EmailsController{
         const emailsPerPage = req.query.emailsPerPage ? parseInt(req.query.emailsPerPage) : 20
         const page = req.query.page ? parseInt(req.query.page) : 0
         let filters = {} 
+        let searchQuery = req.query.searchQuery ? req.query.searchQuery : ""
 
         if(req.query.category){
             filters.category = req.query.category 
         }else if(req.query.owner_email){ 
             filters.owner_email = req.query.owner_email
         }else if(req.query.read){
-            filters.read = req.query.read
+            /* filters.read = req.query.read */
+            const readValue = req.query.read.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+            if (readValue === "true" || readValue === "false") {
+              filters.read = readValue === "true"; // Convert string to boolean
+            }
         }else if(req.query.answered){
-            filters.answered = req.query.answered
+            //filters.answered = req.query.answered
+            const answeredValue = req.query.answered.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+            if (answeredValue === "true" || answeredValue === "false") {
+                filters.answered = answeredValue === "true"; // Convert string to boolean
+                }
         }
 
        const { emailsList, totalNumEmails } = await EmailsDAO.getEmails({
             filters, 
             page, 
-            emailsPerPage
+            emailsPerPage,
+            searchQuery
             })
 
         let response ={
@@ -71,11 +81,26 @@ export default class EmailsController{
             page: page,
             filters: filters, 
             entries_per_page: emailsPerPage, 
+            searchQuery: searchQuery,
             total_results: totalNumEmails
         } 
    
         //console.log(response)
         res.json(response) 
     }
-
+    static async apiSearchEmails(req, res, next) {
+        let searchQuery = req.query.searchQuery ? req.query.searchQuery : "";
+        try {
+          const { emailList, query } = await EmailsDAO.searchEmails(searchQuery);
+          let response = {
+            emailList: emailList,
+            query: query
+          };
+          res.json(response);
+        } catch (error) {
+          console.error(`Something went wrong in apiSearchEmails: ${error}`);
+          res.status(500).json({ error: "Internal server error" });
+        }
+      }
+      
 }

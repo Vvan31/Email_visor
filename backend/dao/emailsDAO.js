@@ -112,6 +112,33 @@ export default class EmailsDAO{
               return [];
             }
           }
+          static async searchEmails(query ='' ) {
+            try {
+              const pipeline = [
+                {
+                  $search: {
+                    index: 'emailsIndex',
+                    text: {
+                      query: query,
+                      path: {
+                        wildcard: '*'
+                      }
+                    }
+                  }
+                },
+              ];
+        
+              let emailList = await emails.aggregate(pipeline).toArray();
+              console.log("emailList")
+              console.log(emailList)
+              return { emailList, query };
+            } catch (e) {
+              console.error(`Something went wrong in searchEmails: ${e}`);
+              return { emailList: [], query: '' };
+            }
+          }
+          
+
 
         static async getEmails({
             filters = null,
@@ -133,6 +160,7 @@ export default class EmailsDAO{
                 query = {}
             }
             }
+
             let cursor
             try{
                 cursor = emails
