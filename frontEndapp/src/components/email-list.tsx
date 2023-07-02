@@ -20,6 +20,9 @@ import '../style/emailList.css';
 //API
 import MailsService from "../services/mails";
 
+//Components
+import SearchBar from "./searchBar";
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -53,6 +56,23 @@ function EmailsList({ category }: { category: string | null }) {
     retrieveMails();
   }, [currentPage, category]);
 
+  const searchMails = (query: string) => {
+    if (query === "") {
+      retrieveMails();
+      return;
+    }
+    let promise;
+    promise = MailsService.searchEmails(query);
+    promise
+      .then(response => {
+        console.log("searching mails");
+        setMails(response.data.emailList);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
   const retrieveMails = () => {
     let promise;
     if (category) {
@@ -60,7 +80,6 @@ function EmailsList({ category }: { category: string | null }) {
     } else {
       promise = MailsService.getAllMails(currentPage);
     }
-
     promise
       .then(response => {
         //console.log(response.data.emails);
@@ -84,19 +103,7 @@ function EmailsList({ category }: { category: string | null }) {
   return (
     <>
       <div className='Emailcontainer'>
-      <BottomNavigation
-        className='bottomNav'
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-          console.log(event);
-        }}
-      >
-          <BottomNavigationAction className='navButton' label="Primary" icon={<MoveToInboxIcon />} />
-          <BottomNavigationAction className='navButton' label="Read" icon={<OutboxIcon />} />
-          <BottomNavigationAction className='navButton' label="Favorites" icon={<FavoriteIcon />} />
-        </BottomNavigation>
+        <SearchBar searchMails={searchMails}/>
         <Box sx={{ width: '100%' }} className='emailList'>
           <Stack spacing={1}>
             {mails.map((mail) => (

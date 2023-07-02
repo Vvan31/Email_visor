@@ -21,5 +21,8 @@ class MailsService {
     getEmailsByCategory() {
         return axios.get(`https://email-visor-backend-htfynai2d-vvan31.vercel.app/api/v1/emails/categories/numberofcategories`);
     }
+    searchEmails(query = "") {
+        return axios.get(`https://email-visor-backend.vercel.app/api/v1/emails/search?searchQuery=${query}`);
+    }
 }
 export default new MailsService();
