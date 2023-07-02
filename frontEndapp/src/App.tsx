@@ -12,7 +12,9 @@ import Login from './pages/login';
 import SignUp from './pages/signup';
 import Mails from './pages/mails';
 
-
+ /*    <RequireAuth> 
+ <Mails />
+   </RequireAuth> */}
 export default function App() {
   return (
     <AuthProvider>
@@ -23,9 +25,7 @@ export default function App() {
           <Route
             path="/mails"
             element={
-              <RequireAuth>
-                <Mails />
-              </RequireAuth>
+              <Mails />
             }
           />
         </Route>
