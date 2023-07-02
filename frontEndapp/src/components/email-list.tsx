@@ -4,16 +4,15 @@ import {
   Stack,
   Paper,
   Checkbox,
-  BottomNavigationAction,
-  BottomNavigation,
   Pagination
 } from '@mui/material';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
+/*import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
 import OutboxIcon from '@mui/icons-material/Outbox';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { styled } from '@mui/material/styles';
+ import FavoriteIcon from '@mui/icons-material/Favorite';
+ */
+import { styled } from '@mui/material/styles'; 
 //styles
 import '../style/emailList.css';
 
@@ -48,7 +47,7 @@ type Mail = {
 
 
 function EmailsList({ category }: { category: string | null }) {
-  const [value, setValue] = React.useState(0);
+  //const [value, setValue] = React.useState(0);
   const [mails, setMails] = React.useState<Mail[]>([]);
   const [currentPage, setCurrentPage] = React.useState(0);
 
