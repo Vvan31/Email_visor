@@ -3,8 +3,6 @@ import {
   Routes,
   Route,
   useNavigate,
-  useLocation,
-  Navigate,
   Outlet,
 } from "react-router-dom";
 //components
@@ -14,7 +12,7 @@ import Mails from './pages/mails';
 
  /*    <RequireAuth> 
  <Mails />
-   </RequireAuth> */}
+   </RequireAuth> */
 export default function App() {
   return (
     <AuthProvider>
@@ -101,7 +99,7 @@ function AuthStatus() {
 }
 
 
-function RequireAuth({ children }: { children: JSX.Element }) {
+/* function RequireAuth({ children }: { children: JSX.Element }) {
   let auth = useAuth();
   let location = useLocation();
 
@@ -114,5 +112,5 @@ function RequireAuth({ children }: { children: JSX.Element }) {
   }
 
   return children;
-}
+} */
 
